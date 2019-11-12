@@ -1,21 +1,16 @@
 import React,{Component} from 'react';
-import {Platform,StyleSheet,Text,View,Image,TextInput,ScrollView,TouchableOpacity} from 'react-native';
+import {StyleSheet,Text,View,Image,ScrollView} from 'react-native';
 import GopayFeature from './src/components/molecules/GopayFeature';
-import MainFeature from './src/components/molecules/MainFeature';
 import SearchFeature from './src/components/molecules/SearchFeature';
 import GoNews from './src/components/molecules/GoNews';
 import GoInfo from './src/components/molecules/GoInfo';
 import GoBanner from './src/components/molecules/GoBanner';
 import ScrollableProducts from './src/containers/organisms/ScrollableProducts';
+import NavBar from './src/containers/organisms/NavBar';
+import HomeMainFeature from './src/containers/organisms/HomeMainFeature';
 
-const instruction = Platform.select({
-    ios:'Press Cmd R to reload\n' + 'Cmd+D or shake for dev menu',
-    android:'Double R on your keyboard to reload \n'+
-    'shake or press Cmd+m menu button for dev menu'
-});
-
-    // type Props={};
-    export default class Coba extends Component{
+// type Props={};
+export default class Coba extends Component{
     render(){
         let pic = {
             uri: 'http://via.placeholder.com/26'
@@ -43,21 +38,7 @@ const instruction = Platform.select({
                     </View>
                     
                     {/* Main Feature */}
-                    <View style={{flexDirection:'row',flexWrap:'wrap',marginVertical:18}}>
-                        <View style={{justifyContent:'space-between',flexDirection:'row',width:"100%",flexWrap:'wrap'}}>
-                            
-                            <MainFeature title="GO-RIDE" img={require('./src/assets/icon/go-ride.png')} />
-                            <MainFeature title="GO-CAR" img={require('./src/assets/icon/go-car.png')} />
-                            <MainFeature title="GO-BLUEBIRD" img={require('./src/assets/icon/go-bluebird.png')} />
-                            <MainFeature title="GO-SEND" img={require('./src/assets/icon/go-send.png')} />
-                            <MainFeature title="GO-DEALS" img={require('./src/assets/icon/go-deals.png')} />
-                            <MainFeature title="GO-PULSA" img={require('./src/assets/icon/go-pulsa.png')} />
-                            <MainFeature title="GO-FOOD" img={require('./src/assets/icon/go-food.png')} />
-                            <MainFeature title="MORE" img={require('./src/assets/icon/go-more.png')} />
-                            
-                        </View>
-                    </View>
-                
+                    <HomeMainFeature />
                     {/* separator */}
                     <View style={{height:17,backgroundColor:'#f2f2f4'}}></View>
                     
@@ -76,28 +57,7 @@ const instruction = Platform.select({
                 </ScrollView>
                 
                 {/* Navigasi bawah */}
-                <View style={{height:54,flexDirection:'row',}}>
-                    <View style={styles.box} >
-                        <Image source={require('./src/assets/icon/home-active.png')} style={{width:26,height:26}} />
-                        <Text style={[styles.textBox,styles.colorText]}>Home</Text>
-                    </View>
-                    <View style={styles.box} >
-                        <Image source={require('./src/assets/icon/order.png')} style={{width:26,height:26}} />
-                        <Text style={[styles.textBox]}>Orders</Text>
-                    </View>
-                    <View style={styles.box} >
-                        <Image source={require('./src/assets/icon/help.png')} style={{width:26,height:26}} />
-                        <Text style={[styles.textBox]}>Help</Text>
-                    </View>
-                    <View style={styles.box} >
-                        <Image source={require('./src/assets/icon/inbox.png')} style={{width:26,height:26}} />
-                        <Text style={[styles.textBox]}>Inbox</Text>
-                    </View>
-                    <View style={styles.box} >
-                        <Image source={require('./src/assets/icon/account.png')} style={{width:26,height:26}} />
-                        <Text style={[styles.textBox]}>Account</Text>
-                    </View>
-                </View>
+                <NavBar />
             </View>
         );
     }
@@ -109,19 +69,6 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
         marginTop:50,
         marginBottom:10
-    },
-    box:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
-    },
-    textBox:{
-        color:'#545454',
-        fontSize:10,
-        marginTop:4,
-    },
-    colorText:{
-        color:'#43AB4A'
     }
 
 })
