@@ -1,11 +1,14 @@
 import React from 'react';
 import {View,Text,Image,StyleSheet} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const NavBarIcon = props =>{
     return (
-    <View style={styles.box} >
-        <Image source={props.img} style={{width:26,height:26}} />
-        <Text style={[styles.textBox,props.active ? styles.colorText : '#545454']}>{props.title}</Text>
+    <View style={styles.box}>
+        <TouchableOpacity onPress={props.onPress}>
+            <Image source={props.img} style={{width:26,height:26}} />
+            <Text style={[styles.textBox,props.active ? styles.colorText : '#545454']}>{props.title}</Text>
+        </TouchableOpacity>
     </View>
     );
 }
